@@ -52,9 +52,8 @@ public class CommentServlet extends HttpServlet {
 
         if (user.getRole().equals(Role.ADMIN)) {
             String loginUser = commentService.getLoginById(idComment);
-            isDeleted = commentService.deleteComment(idComment, loginUser);
+            isDeleted = postService.deleteComment(idPost, comment, loginUser);
         } else {
-            //isDeleted = commentService.deleteComment(idComment, user.getLogin());
             isDeleted = postService.deleteComment(idPost, comment, user.getLogin());
         }
 
